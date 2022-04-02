@@ -1,8 +1,8 @@
 # bycrt_split92
 
-![bycrt_split92](imgur.com image replace me!)
+![bycrt_split92](https://imgur.com/a/5apAdFM)
 
-*A short description of the keyboard/project*
+*A 92 key staggered split keyboard with a 75% ansi layout and additional 6 macro keys.*
 
 * Keyboard Maintainer: [Crt Gregoric](https://github.com/crtgregoric)
 * Hardware Supported: *The PCBs, controllers supported*

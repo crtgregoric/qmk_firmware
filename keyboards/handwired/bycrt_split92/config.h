@@ -25,7 +25,7 @@
 #define MATRIX_ROW_PINS_RIGHT { B3, B2, B6, B4, D7, B0 }
 #define MATRIX_COL_PINS_RIGHT { F1, F0, F4, F5, F6, D5, C7, D3, B7 }
 
-#define LED_CAPS_LOCK_PIN B6
+#define CAPS_LOCK_LED_PIN B6
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE

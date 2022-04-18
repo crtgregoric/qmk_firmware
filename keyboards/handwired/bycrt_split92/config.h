@@ -20,12 +20,12 @@
 #define DIODE_DIRECTION COL2ROW
 
 // wiring of each half
-#define MATRIX_ROW_PINS { B1, B2, C7, B4, D7, B0 }
-#define MATRIX_COL_PINS { F4, F1, F0, B7, B3, D2, D3, D5, D4 }
-#define MATRIX_ROW_PINS_RIGHT { B3, B2, B6, B4, D7, B0 }
-#define MATRIX_COL_PINS_RIGHT { F1, F0, F4, F5, F6, D5, C7, D3, B7 }
+#define MATRIX_ROW_PINS { D3, D2, D1, D4, C6, D7 }
+#define MATRIX_COL_PINS { E6, B4, B5, F4, F5, F6, F7, B1 }
+#define MATRIX_ROW_PINS_RIGHT { D3, D2, D1, D4, C6, D7 }
+#define MATRIX_COL_PINS_RIGHT { E6, B4, B5, F4, F5, F6, F7, B1, B3 }
 
-#define CAPS_LOCK_LED_PIN B6
+// #define CAPS_LOCK_LED_PIN B6
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE

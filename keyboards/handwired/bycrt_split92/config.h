@@ -33,7 +33,7 @@
 #define LOCKING_RESYNC_ENABLE
 
 // Split keyboard specific info
-#define SPLIT_HAND_PIN F7
+// #define SPLIT_HAND_PIN F7
 #define MASTER_LEFT
 #define SOFT_SERIAL_PIN D0
 

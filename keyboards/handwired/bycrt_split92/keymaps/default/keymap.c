@@ -18,13 +18,26 @@
 
 enum custom_keycodes {
     LCK_DSP = SAFE_RANGE,
+    J_10LU,
+    J_10LD,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case LCK_DSP:
         if (record->event.pressed) {
-            SEND_STRING("control + command + q");
+            register_code(KC_LCTL); register_code(KC_LCMD); register_code(KC_Q);
+            unregister_code(KC_LCTL); unregister_code(KC_LCMD); unregister_code(KC_Q);
+        }
+        break;
+    case J_10LU:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_UP) SS_TAP(X_UP) SS_TAP(X_UP) SS_TAP(X_UP) SS_TAP(X_UP) SS_TAP(X_UP) SS_TAP(X_UP) SS_TAP(X_UP) SS_TAP(X_UP) SS_TAP(X_UP));
+        }
+        break;
+    case J_10LD:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_DOWN) SS_TAP(X_DOWN) SS_TAP(X_DOWN) SS_TAP(X_DOWN) SS_TAP(X_DOWN) SS_TAP(X_DOWN) SS_TAP(X_DOWN) SS_TAP(X_DOWN) SS_TAP(X_DOWN) SS_TAP(X_DOWN));
         }
         break;
     }
@@ -63,11 +76,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├───┼───┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┘    ┌─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─────┼───┤
      * │   │   │   │   │   │   │   │   │      │   │   │   │   │   │   │  Del  │   │
      * ├───┼───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┘    ┌─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┼───┤
-     * │   │     │   │MW←│M↑ │MW→│   │      │   │MW↑│ ↑ │MB1│MB2│   │   │     │   │
+     * │   │     │   │MW←│M↑ │MW→│   │      │JUp│MW↓│ ↑ │MB1│MB2│   │   │     │   │
      * ├───┼─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┐     └┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┼───┤
-     * │   │      │   │M← │M↓ │M→_│   │      │   │_← │ ↓ │ → │   │   │Np Enter│   │
+     * │   │      │   │M← │M↓ │M→_│   │      │JDn│_← │ ↓ │ → │   │   │Np Enter│   │
      * ├───┼──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┐    └─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────┬───┼───┤
-     * │   │        │   │   │   │   │   │      │   │MW↓│MS1│MS2│MS3│      │PUp│   │
+     * │   │        │   │   │   │   │   │      │   │MW↑│MS1│MS2│MS3│      │PUp│   │
      * ├───┼───┬───┬┴──┬┴───┼───┴───┴──┬┘     ┌┴───┴──┬┴──┬┴──┬┴──┬┴──┬───┼───┼───┤
      * │   │   │   │   │    │          │      │   DF  │   │   │   │   │Hme│PDn│End│
      * └───┴───┴───┴───┴────┴──────────┘      └───────┴───┴───┴───┴───┴───┴───┴───┘
@@ -75,9 +88,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [1] = LAYOUT_92(
         KC_TRNS, LCK_DSP, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,                                KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_WH_L, KC_MS_U, KC_WH_R, KC_TRNS,       KC_TRNS, KC_WH_U, KC_UP, KC_MS_BTN1, KC_MS_BTN2, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,                    KC_TRNS, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_PENT, KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                    KC_TRNS, KC_WH_D, KC_ACL0, KC_ACL1, KC_ACL2, KC_TRNS, KC_PGUP, KC_TRNS, 
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                DF(0), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_HOME, KC_PGDN, KC_END
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_WH_L, KC_MS_U, KC_WH_R, KC_TRNS,       J_10LU, KC_WH_D, KC_UP, KC_MS_BTN1, KC_MS_BTN2, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,                    J_10LD, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_PENT, KC_TRNS, 
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                    KC_TRNS, KC_WH_U, KC_ACL0, KC_ACL1, KC_ACL2, KC_TRNS, KC_PGUP, KC_TRNS, 
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                                TO(0), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_HOME, KC_PGDN, KC_END
     )
 };

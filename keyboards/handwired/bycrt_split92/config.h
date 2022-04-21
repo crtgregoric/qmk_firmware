@@ -25,16 +25,16 @@
 #define MATRIX_ROW_PINS_RIGHT { D3, D2, D1, D4, C6, D7 }
 #define MATRIX_COL_PINS_RIGHT { E6, B4, B5, F4, F5, F6, F7, B1, B3 }
 
-// #define CAPS_LOCK_LED_PIN B6
+#define LED_CAPS_LOCK_PIN B6
 
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE
 
 #define NO_ACTION_ONESHOT
 
-#define NO_ACTION_TAPPING
-
 #define LAYER_STATE_8BIT
+
+#define TAPPING_TOGGLE 2
 
 // Split keyboard specific info
 // #define SPLIT_HAND_PIN F7

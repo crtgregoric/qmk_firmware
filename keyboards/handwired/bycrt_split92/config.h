@@ -27,24 +27,17 @@
 
 // #define CAPS_LOCK_LED_PIN B6
 
-/* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
-/* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+#undef LOCKING_SUPPORT_ENABLE
+#undef LOCKING_RESYNC_ENABLE
+
+#define NO_ACTION_ONESHOT
+
+#define NO_ACTION_TAPPING
+
+#define LAYER_STATE_8BIT
 
 // Split keyboard specific info
 // #define SPLIT_HAND_PIN F7
 #define MASTER_LEFT
 #define SOFT_SERIAL_PIN D0
-
-/*
-This is COL2ROW:
-
- │o               │o
-┌┴┐         o    ┌┴┐         o
-│ │    O         │ │    O
-├─┤              ├─┤      
-└┬┘              └┬┘
- └────────────────┴─────────────
-
-*/
+#define NO_MUSIC_MODE

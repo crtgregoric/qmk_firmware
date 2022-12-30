@@ -44,6 +44,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
 
+/*
+ * https://getreuer.info/posts/keyboards/triggers/index.html
+ */
+layer_state_t layer_state_set_user(layer_state_t state) {
+  writePin(B2, (get_highest_layer(state) == 2));
+  return state;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 
      * Default layer

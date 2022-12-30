@@ -74,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ┌───┬─────┬───┬───┬───┬───┬───┬───┐      ┌───┬───┬───┬───┬───┬───┬─────┬───┐
      * │   │ LCK │F1 │F2 │F3 │F4 │F5 │F6 │      │F7 │F8 │F9 │F10│F11│F12│     │   │
      * ├───┼───┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┘    ┌─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─────┼───┤
-     * │   │TG2│   │   │   │   │   │   │      │   │   │   │   │   │   │  Del  │   │
+     * │   │TG2│TO1│TO2│   │   │   │   │      │   │   │   │   │   │   │  Del  │   │
      * ├───┼───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┘    ┌─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┼───┤
      * │   │     │   │MW←│M↑ │MW→│   │      │JUp│MW↓│ ↑ │MB1│MB2│   │   │     │   │
      * ├───┼─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┐     └┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┼───┤
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [1] = LAYOUT_92(
         KC_TRNS, LCK_DSP, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6,                                   KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_TRNS, KC_TRNS,
-        KC_TRNS, TG(2), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS, 
+        KC_TRNS, TG(2), TO(1), TO(2), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_DEL, KC_TRNS, 
         KC_TRNS, KC_TRNS, KC_TRNS, KC_WH_L, KC_MS_U, KC_WH_R, KC_TRNS,           J_10LU, KC_WH_D, KC_UP, KC_MS_BTN1, KC_MS_BTN2, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
         KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,                        J_10LD, KC_LEFT, KC_DOWN, KC_RGHT, KC_TRNS, KC_TRNS, KC_PENT, KC_TRNS, 
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                       KC_TRNS, KC_WH_U, KC_ACL0, KC_ACL1, KC_ACL2, KC_TRNS, KC_PGUP, KC_TRNS, 

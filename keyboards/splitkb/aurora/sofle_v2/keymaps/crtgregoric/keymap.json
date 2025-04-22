@@ -40,7 +40,11 @@
             "rgblight": false
         },
         "encoder": {
-            "enabled": true
+            "enabled": true,
+            "rotary": [
+                {"pin_a": "B2", "pin_b": "B6"}
+            ],
+            "resolution": 2
         },
         "rgblight": {
             "hue_steps": 8,

@@ -195,6 +195,10 @@ void render_kb_LED_state(void) {
     oled_write_P(led_usb_state.scroll_lock ? PSTR("S ") : PSTR("  "), false);
 }
 
+void render_platform(void) {
+    oled_write_P(PSTR("Mac"), false);
+}
+
 void render_layer_state(void) {
     static const char PROGMEM default_layer[] = {
         0x20, 0x94, 0x95, 0x96, 0x20,
@@ -243,6 +247,7 @@ bool oled_task_kb(void) {
         render_mod_status_gui_alt(get_mods()|get_oneshot_mods());
         render_mod_status_ctrl_shift(get_mods()|get_oneshot_mods());
         render_kb_LED_state();
+        render_platform();
     } else {
         // clang-format off
         static const char PROGMEM aurora_art[] = {

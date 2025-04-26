@@ -4,43 +4,46 @@
 bool mac_mode = true;  // Start in Mac mode
 
 enum custom_keycodes {
-    MAC_TGL = SAFE_RANGE,
+    OS_TGL = SAFE_RANGE, // Platform mod toggle
+    // Platform specific modifiers
     LGUI_K,
     RGUI_K,
     LALT_K,
     RALT_K
 };
 
-void handle_platform_key(keyrecord_t *record, uint16_t mac_key, uint16_t win_key) {
+void handle_platform_modifier(bool is_mac, keyrecord_t *record, uint16_t mac_key, uint16_t win_key) {
+    uint16_t key = is_mac ? mac_key : win_key;
+
     if (record->event.pressed) {
-        register_code(mac_mode ? mac_key : win_key);
+        register_code(key);
     } else {
-        unregister_code(mac_mode ? mac_key : win_key);
+        unregister_code(key);
     }
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case MAC_TGL:
+        case OS_TGL:
             if (record->event.pressed) {
                 mac_mode = !mac_mode;
             }
             return false;
 
         case LGUI_K:
-            handle_platform_key(record, KC_LGUI, KC_LALT);
+            handle_platform_modifier(mac_mode, record, KC_LGUI, KC_LALT);
             return false;
 
         case RGUI_K:
-            handle_platform_key(record, KC_RGUI, KC_RALT);
+            handle_platform_modifier(mac_mode, record, KC_RGUI, KC_RALT);
             return false;
 
         case LALT_K:
-            handle_platform_key(record, KC_LALT, KC_LGUI);
+            handle_platform_modifier(mac_mode, record, KC_LALT, KC_LGUI);
             return false;
 
         case RALT_K:
-            handle_platform_key(record, KC_RALT, KC_RGUI);
+            handle_platform_modifier(mac_mode, record, KC_RALT, KC_RGUI);
             return false;
     }
     return true;
@@ -87,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Adjust Layer
     [3] = LAYOUT(
         XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                                XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-        XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    MAC_TGL,                                XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+        XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    OS_TGL,                                 XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
         XXXXXXX,    RM_TOGG,    RM_HUEU,    RM_SATU,    RM_VALU,    XXXXXXX,                                XXXXXXX,    KC_VOLD,    KC_MUTE,    KC_VOLU,    XXXXXXX,    XXXXXXX,
         XXXXXXX,    RM_NEXT,    RM_HUED,    RM_SATD,    RM_VALD,    XXXXXXX,   XXXXXXX,         XXXXXXX,    XXXXXXX,    KC_MPRV,    KC_MPLY,    KC_MNXT,    XXXXXXX,    XXXXXXX,
                                 _______,    _______,    _______,    _______,   _______,         _______,    _______,    _______,    _______,    _______

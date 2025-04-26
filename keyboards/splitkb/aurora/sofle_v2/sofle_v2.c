@@ -16,6 +16,8 @@
 
 #include "quantum.h"
 
+extern bool mac_mode;  // <- Add this line to access mac_mode from keymap.c
+
 // The first four layers gets a name for readability, which is then used in the OLED below.
 enum layers {
   _DEFAULT,
@@ -196,7 +198,11 @@ void render_kb_LED_state(void) {
 }
 
 void render_platform(void) {
-    oled_write_P(PSTR("Mac"), false);
+    if (mac_mode) {
+        oled_write_P(PSTR("Mac"), false);
+    } else {
+        oled_write_P(PSTR("Win"), false);
+    }
 }
 
 void render_layer_state(void) {
@@ -299,14 +305,14 @@ bool encoder_update_kb(uint8_t index, bool clockwise) {
     // 0 is left-half encoder,
     // 1 is right-half encoder
     if (index == 0) {
-        // Volume control
+        // Page up/Page down
         if (clockwise) {
             tap_code(KC_PGDN);
         } else {
             tap_code(KC_PGUP);
         }
     } else if (index == 1) {
-        // Page up/Page down
+        // Volume control
         if (clockwise) {
             tap_code(KC_VOLU);
         } else {

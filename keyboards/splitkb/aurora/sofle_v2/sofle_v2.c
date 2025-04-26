@@ -16,7 +16,7 @@
 
 #include "quantum.h"
 
-extern bool mac_mode;  // <- Add this line to access mac_mode from keymap.c
+extern bool mac_mode; // Access mac_mode from keymap.c
 
 // The first four layers gets a name for readability, which is then used in the OLED below.
 enum layers {
@@ -198,11 +198,7 @@ void render_kb_LED_state(void) {
 }
 
 void render_platform(void) {
-    if (mac_mode) {
-        oled_write_P(PSTR("Mac"), false);
-    } else {
-        oled_write_P(PSTR("Win"), false);
-    }
+    oled_write_P(mac_mode ? PSTR("Mac") : PSTR("Win"), false);
 }
 
 void render_layer_state(void) {

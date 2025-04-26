@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 
-// --- Mac/Windows dynamic mode ---
+// Mac/Windows dynamic mode
 bool mac_mode = true;  // Start in Mac mode
 
 enum custom_keycodes {

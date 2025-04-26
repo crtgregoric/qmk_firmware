@@ -5,8 +5,19 @@ bool mac_mode = true;  // Start in Mac mode
 
 enum custom_keycodes {
     MAC_TGL = SAFE_RANGE,
-    CMD_KEY,
+    LGUI_K,
+    RGUI_K,
+    LALT_K,
+    RALT_K
 };
+
+void handle_platform_key(keyrecord_t *record, uint16_t mac_key, uint16_t win_key) {
+    if (record->event.pressed) {
+        register_code(mac_mode ? mac_key : win_key);
+    } else {
+        unregister_code(mac_mode ? mac_key : win_key);
+    }
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -14,14 +25,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 mac_mode = !mac_mode;
             }
-
             return false;
-        case CMD_KEY:
-            if (record->event.pressed) {
-                register_code(mac_mode ? KC_LGUI : KC_LCTL);
-            } else {
-                unregister_code(mac_mode ? KC_LGUI : KC_LCTL);
-            }
+
+        case LGUI_K:
+            handle_platform_key(record, KC_LGUI, KC_LALT);
+            return false;
+
+        case RGUI_K:
+            handle_platform_key(record, KC_RGUI, KC_RALT);
+            return false;
+
+        case LALT_K:
+            handle_platform_key(record, KC_LALT, KC_LGUI);
+            return false;
+
+        case RALT_K:
+            handle_platform_key(record, KC_RALT, KC_RGUI);
             return false;
     }
     return true;
@@ -35,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,     KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,                                   KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,       KC_BSLS,
         KC_CAPS,    KC_A,       KC_S,       KC_D,       KC_F,       KC_G,                                   KC_H,       KC_J,       KC_K,       KC_L,       KC_SCLN,    KC_QUOT,
         KC_LSFT,    KC_Z,       KC_X,       KC_C,       KC_V,       KC_B,       XXXXXXX,        XXXXXXX,    KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,    KC_RSFT,
-                                KC_LCTL,    KC_LALT,    KC_LGUI,    KC_SPC,     MO(2),          KC_ENT,     KC_RGUI,    MO(1),      KC_RALT,    KC_RCTL
+                                KC_LCTL,    LALT_K,     LGUI_K,     KC_SPC,     MO(2),          KC_ENT,     RGUI_K,     MO(1),      RALT_K,     KC_RCTL
     ),
     // Raise Layer
     [1] = LAYOUT(

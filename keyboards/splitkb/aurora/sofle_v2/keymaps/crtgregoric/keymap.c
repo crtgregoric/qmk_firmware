@@ -1,10 +1,23 @@
 #include QMK_KEYBOARD_H
 
+// Left-hand home row mods
+#define SFT_A       LSFT_T(KC_A)
+#define CTL_S       LCTL_T(KC_S)
+#define ALT_D       LALT_T(KC_D)
+#define GUI_F       LGUI_T(KC_F)
+
+// Right-hand home row mods
+#define GUI_J       RGUI_T(KC_J)
+#define ALT_K       LALT_T(KC_K)
+#define CTL_L       RCTL_T(KC_L)
+#define SFT_SCLN    RSFT_T(KC_SCLN)
+
 // Mac/Windows dynamic mode
 bool mac_mode = true;  // Start in Mac mode
 
 enum custom_keycodes {
     OS_TGL = SAFE_RANGE, // Platform mod toggle
+    
     // Platform specific modifiers
     LGUI_K,
     RGUI_K,
@@ -48,18 +61,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
-
-// Left-hand home row mods
-#define SFT_A LSFT_T(KC_A)
-#define CTL_S LCTL_T(KC_S)
-#define ALT_D LALT_T(KC_D)
-#define GUI_F LGUI_T(KC_F)
-
-// Right-hand home row mods
-#define GUI_J RGUI_T(KC_J)
-#define ALT_K LALT_T(KC_K)
-#define CTL_L RCTL_T(KC_L)
-#define SFT_SCLN RSFT_T(KC_SCLN)
 
 // --- Keymaps ---
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

@@ -16,7 +16,8 @@
 
 #include "quantum.h"
 
-extern bool mac_mode; // Access mac_mode from keymap.c
+// Access mac_mode from keymap.c
+extern bool mac_mode;
 
 // The first four layers gets a name for readability, which is then used in the OLED below.
 enum layers {
@@ -238,11 +239,11 @@ void render_layer_state(void) {
     }
 }
 
-
 bool oled_task_kb(void) {
     if (!oled_task_user()) {
         return false;
     }
+
     if (is_keyboard_master()) {
         // Renders the current keyboard state (layers and mods)
         render_logo();
@@ -254,6 +255,7 @@ bool oled_task_kb(void) {
         render_mod_status_ctrl_shift(get_mods()|get_oneshot_mods());
         render_kb_LED_state();
         render_platform();
+
     } else {
         // clang-format off
         static const char PROGMEM aurora_art[] = {
@@ -290,6 +292,7 @@ bool oled_task_kb(void) {
             0x10, 0xf0, 0x08, 0xf4, 0x18, 0x11, 0xfc, 0x18, 0xfb, 0x0e, 0x10, 0xf8, 0x04, 0xf8, 0x10, 0x20,
             0x18, 0x09, 0xff, 0x0c, 0xea, 0x1f, 0x28, 0x60, 0x30, 0xf8, 0x20, 0xc0, 0x42, 0x33, 0x21, 0x00
         };
+        
         // clang-format on
         oled_write_raw_P(aurora_art, sizeof(aurora_art));
     }

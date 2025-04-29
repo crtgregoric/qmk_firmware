@@ -1,1 +1,2 @@
 BOOTLOADER = caterina
+OS_DETECTION_ENABLE = yes

@@ -1,16 +1,28 @@
 #include QMK_KEYBOARD_H
 
+// // Left-hand home row mods
+// #define SFT_A       LSFT_T(KC_A)
+// #define CTL_S       LCTL_T(KC_S)
+// #define ALT_D       LALT_T(KC_D)
+// #define GUI_F       LGUI_T(KC_F)
+
+// // Right-hand home row mods
+// #define GUI_J       RGUI_T(KC_J)
+// #define ALT_K       RALT_T(KC_K)
+// #define CTL_L       RCTL_T(KC_L)
+// #define SFT_SCLN    RSFT_T(KC_SCLN)
+
 // Left-hand home row mods
-#define SFT_A       LSFT_T(KC_A)
-#define CTL_S       LCTL_T(KC_S)
-#define ALT_D       LALT_T(KC_D)
-#define GUI_F       LGUI_T(KC_F)
+#define SFT_A       KC_A
+#define CTL_S       KC_S
+#define ALT_D       KC_D
+#define GUI_F       KC_F
 
 // Right-hand home row mods
-#define GUI_J       RGUI_T(KC_J)
-#define ALT_K       LALT_T(KC_K)
-#define CTL_L       RCTL_T(KC_L)
-#define SFT_SCLN    RSFT_T(KC_SCLN)
+#define GUI_J       KC_J
+#define ALT_K       KC_K
+#define CTL_L       KC_L
+#define SFT_SCLN    KC_SCLN
 
 // Mac/Windows dynamic mode
 bool mac_mode = true;  // Start in Mac mode

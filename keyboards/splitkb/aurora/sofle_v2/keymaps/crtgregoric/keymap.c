@@ -67,15 +67,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [1] = LAYOUT(
         KC_GRV,     _______,    _______,    _______,    _______,    _______,                                _______,    _______,    _______,    KC_MINS,    KC_EQL,     KC_DEL,
         _______,    _______,    _______,    _______,    _______,    _______,                                _______,    _______,    KC_UP,      KC_LBRC,    KC_RBRC,    _______,
-        _______,    _______,    _______,    _______,    _______,    _______,                                _______,    KC_LEFT,    KC_DOWN,    KC_RGHT,    _______,    _______,
-        _______,    KC_BRMD,    KC_BRMU,    KC_NO,      RM_VALD,    RM_VALU,    _______,        _______,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,
+        _______,    _______,    _______,    _______,    _______,    _______,                                _______,    KC_LEFT,    KC_DOWN,    KC_RGHT,    _______,    KC_ENT,
+        _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,
                                 _______,    _______,    _______,    _______,    MO(3),          _______,    _______,    _______,    _______,    _______
     ),
     // Lower Layer
     [2] = LAYOUT(
         KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,                                  KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,
-        _______,    _______,    _______,    _______,    _______,    _______,                                _______,    _______,    _______,    _______,    _______,    _______,
-        _______,    _______,    _______,    _______,    _______,    _______,                                _______,    _______,    _______,    _______,    _______,    _______,
+        KC_BRMD,    KC_BRMU,    KC_NO,      KC_NO,      RM_VALD,    RM_VALU,                                KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,
+        _______,    _______,    _______,    _______,    _______,    _______,                                _______,    _______,    _______,    _______,    _______,    KC_ENT,
         _______,    _______,    _______,    _______,    _______,    _______,    _______,        _______,    _______,    _______,    _______,    _______,    _______,    _______,
                                 _______,    _______,    _______,    _______,    _______,        _______,    _______,    MO(3),      _______,    _______
     ),
@@ -83,8 +83,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [3] = LAYOUT(
         XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                                XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
         XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                                XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
-        XXXXXXX,    RM_TOGG,    RM_HUEU,    RM_SATU,    RM_VALU,    XXXXXXX,                                XXXXXXX,    KC_VOLD,    KC_MUTE,    KC_VOLU,    XXXXXXX,    XXXXXXX,
-        XXXXXXX,    RM_NEXT,    RM_HUED,    RM_SATD,    RM_VALD,    XXXXXXX,   XXXXXXX,         XXXXXXX,    XXXXXXX,    KC_MPRV,    KC_MPLY,    KC_MNXT,    XXXXXXX,    XXXXXXX,
+        XXXXXXX,    RM_TOGG,    RM_HUEU,    RM_SATU,    RM_VALU,    XXXXXXX,                                XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+        XXXXXXX,    RM_NEXT,    RM_HUED,    RM_SATD,    RM_VALD,    XXXXXXX,   XXXXXXX,         XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
                                 _______,    _______,    _______,    _______,   _______,         _______,    _______,    _______,    _______,    _______
     )
 };
